@@ -203,6 +203,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     rsync
 
+# HALO App
+PRODUCT_PACKAGES += \
+    HALO
+
 PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/common
 
