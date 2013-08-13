@@ -154,7 +154,9 @@ PRODUCT_PACKAGES += \
     VoicePlus \
     VoiceDialer \
     SoundRecorder \
-    Basic
+    Basic \
+    FastBoot \
+    RestoreAirplaneMode
 
 # Custom CM packages
 PRODUCT_PACKAGES += \
