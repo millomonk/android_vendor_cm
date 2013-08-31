@@ -252,11 +252,11 @@ else
 endif
 
 ifeq ($(PDROID),true)
-		# Add PDroidManager
-		PRODUCT_PACKAGES += \
-    		PDroidManager
+    # Add PDroidManager
+    PRODUCT_PACKAGES += \
+        PDroidManager
     # Set build name
-		CM_EXTRAVERSION := -PDroid
+    CM_EXTRAVERSION := -PDroid$(CM_EXTRAVERSION)
 endif
 
 ifdef CM_RELEASE
