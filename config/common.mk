@@ -170,6 +170,10 @@ PRODUCT_PACKAGES += \
     CMFileManager \
     LockClock \
     CMAccount
+    
+# Custom CK packages
+PRODUCT_PACKAGES += \
+    HALO
 
 # CM Hardware Abstraction Framework
 PRODUCT_PACKAGES += \
@@ -211,10 +215,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     rsync
 
-# HALO App
-PRODUCT_PACKAGES += \
-    HALO
-
 # easy way to extend to add more packages
 -include vendor/extra/product.mk
 
@@ -251,8 +251,16 @@ else
     CM_EXTRAVERSION :=
 endif
 
+ifeq ($(PDROID),true)
+		# Add PDroidManager
+		PRODUCT_PACKAGES += \
+    		PDroidManager
+    # Set build name
+		CM_EXTRAVERSION := -PDroid
+endif
+
 ifdef CM_RELEASE
-    CM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(CM_BUILD)
+    CM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(CM_BUILD)$(CM_EXTRAVERSION)
 else
     ifeq ($(PRODUCT_VERSION_MINOR),0)
         CM_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)-$(CM_BUILD)$(CM_EXTRAVERSION)
