@@ -174,6 +174,8 @@ PRODUCT_PACKAGES += \
     CKUpdater \
     CMFileManager \
     LockClock \
+    CMUpdater \
+    CMFota \
     CMAccount
     
 # Custom CK packages
